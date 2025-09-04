@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Services\ActivityService;
+use App\Services\LocationService;
+use App\Services\OrganizationService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Сервисы
+        $this->app->singleton(LocationService::class);
+        $this->app->singleton(ActivityService::class);
+        $this->app->singleton(OrganizationService::class);
     }
 
     /**
